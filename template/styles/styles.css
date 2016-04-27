@@ -12,12 +12,71 @@
 body {
 	font-size: 1rem;
 	font-family: "URW Gothic L", "Helvetica", "Arial", sans-serif;
+    padding: 10%;
 }
 
+header > .background {
+    position: absolute;
+    background-color: #0261a1;
+    height: 6rem;
+    width: 80%;
+}
 
+header > div > h1 {
+    font-size: 400%;
+    position: absolute;
+    color: white;
+    font-weight: 900;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+header > div > img {
+    padding-left: .5rem;
+    padding-right: .2rem;
+    padding-top: .6rem;
+    vertical-align: middle;
+}
 
 /* images */
 
+/* Add flags in front of list items which have an hreflang attribute */
+.navigation > nav > ul > ul > li > a[hreflang=en]::before {
+    background-image: url("../../media/flag-en.svg");
+    background-size: 100%;
+    display: inline-block;
+    width: 1rem;
+    height: .8rem;
+    margin-right: .2rem;
+    content: "";
+}
+.navigation > nav > ul > ul > li > a[hreflang=it]::before {
+    background-image: url("../../media/flag-it.svg");
+    background-size: 100%;
+    display: inline-block;
+    width: 1rem;
+    height: .8rem;
+    margin-right: .2rem;
+    content: "";
+}
+.navigation > nav > ul > ul > li > a[hreflang=fr]::before {
+    background-image: url("../../media/flag-fr.svg");
+    background-size: 100%;
+    display: inline-block;
+    width: 1rem;
+    height: .8rem;
+    margin-right: .2rem;
+    content: "";
+}
+
+small > a > img {
+    vertical-align: middle;
+}
+
+footer {
+    margin-top: 1rem;
+    background: #0261a1;
+}
 
 
 /* text */
@@ -25,8 +84,29 @@ body {
 
 
 /* lists */
+body > .navigation {
+    margin-top: 8rem;
+	width: 100%;
+}
 
+/* Add border and background color to navigation */
+.navigation > nav {
+	padding: 0.5rem;
+	background-color: #e6e6e6;
+    border-style: solid;
+    border-width: .1rem;
+    border-color: #0261a1;
+}
 
+/* Remove bulletpoints from list entries */
+.navigation > nav > ul, li {
+    list-style-type: none;
+}
+
+/* Add padding to nested list items */
+.navigation > nav > ul > ul {
+    padding-left: 1rem;
+}
 
 /* table */
 

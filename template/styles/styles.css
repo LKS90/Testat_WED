@@ -38,10 +38,42 @@ header > div > img {
     vertical-align: middle;
 }
 
+#calc-demo {
+    height: 0;
+    position: relative;
+    padding-top: 1rem;
+    padding-bottom: 75%;
+}
+
+#calc-demo > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 73%;
+}
+
 /* images */
 
+#marchant-calculator {
+    float: left;
+    margin: 1em;
+    max-width: 12.5rem;
+}
+
+#marchant-calculator > img {
+    max-width: 12rem;
+}
+
+figcaption {
+    text-align: start;
+    font-size: 80%;
+    color: dimgray;
+    word-wrap: break-word;
+}
+
 /* Add flags in front of list items which have an hreflang attribute */
-.navigation > nav > ul > ul > li > a[hreflang=en]::before {
+a[hreflang=en]::before {
     background-image: url("../../media/flag-en.svg");
     background-size: 100%;
     display: inline-block;
@@ -50,7 +82,7 @@ header > div > img {
     margin-right: .2rem;
     content: "";
 }
-.navigation > nav > ul > ul > li > a[hreflang=it]::before {
+a[hreflang=it]::before {
     background-image: url("../../media/flag-it.svg");
     background-size: 100%;
     display: inline-block;
@@ -59,7 +91,7 @@ header > div > img {
     margin-right: .2rem;
     content: "";
 }
-.navigation > nav > ul > ul > li > a[hreflang=fr]::before {
+a[hreflang=fr]::before {
     background-image: url("../../media/flag-fr.svg");
     background-size: 100%;
     display: inline-block;
@@ -104,8 +136,29 @@ body > .navigation {
 }
 
 /* Add padding to nested list items */
-.navigation > nav > ul > ul {
+.navigation > nav > ul ~ ul > li ~ li {
     padding-left: 1rem;
+}
+
+#ranking-best {
+    counter-reset: best;
+    padding-top: .2rem;
+    padding-bottom: .2rem;
+}
+
+#ranking-best > li:before {
+    content: counter(best) ". ";
+    counter-increment: best;
+}
+
+#ranking-worst {
+    counter-reset: worst 79;
+    padding-top: .2rem;
+    padding-bottom: .2rem;
+}
+#ranking-worst> li:before {
+    content: counter(worst) ". ";
+    counter-increment: worst -1;
 }
 
 /* table */
@@ -114,7 +167,30 @@ body > .navigation {
 
 /* forms */
 
+button {
+    background-color: #0261a1;
+    display: inline-block;
+    padding-left: .6rem;
+    padding-right: .6rem;
+    padding-top: .2rem;
+    padding-bottom: .2rem;
+    color: white;
+    border: .1rem transparent;
+    box-shadow: 0 0 .1rem .1rem rgba(0, 0, 0, 0.15), 0 0 .2rem .2rem rgba(0, 0, 0, 0.1);
+    border-radius: .2rem;
+}
 
+#search::before {
+    background-image: url("../../media/icon-search.svg");
+    background-repeat: no-repeat;
+    float: left;
+    display: inline-block;
+    margin-right: .3rem;
+    background-size: 100%;
+    width: 1rem;
+    height: 1rem;
+    content: "";
+}
 
 #font-size-form {
 	float: right;

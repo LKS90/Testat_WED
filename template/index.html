@@ -21,29 +21,29 @@
 				<ul>
 					<li><a href="/de/">Hauptseite</a></li>
 					<li><a href="/de/topics/">Themenportale</a></li>
+                </ul>
+                <ul>
 					<li><p>Mitmachen</p></li>
-					<ul>
-						<li><a href="/de/join/enhance-article/calculator">Artikel verbessern</a></li>
-						<li><a href="/de/join/create-article">Neuen Artikel anlegen</a></li>
-						<li><a href="/de/join/author-portal">Autorenportal</a></li>
-						<li><a href="/de/join/help">Hilfe</a></li>
-						<li><a href="/de/join/last-changes/calculator">Letzte Änderungen</a></li>
-						<li><a href="/de/join/contact">Kontakt</a></li>
-						<li><a href="/de/join/donate">Spenden</a></li>
-					</ul>
+                    <li><a href="/de/join/enhance-article/calculator">Artikel verbessern</a></li>
+					<li><a href="/de/join/create-article">Neuen Artikel anlegen</a></li>
+					<li><a href="/de/join/author-portal">Autorenportal</a></li>
+					<li><a href="/de/join/help">Hilfe</a></li>
+					<li><a href="/de/join/last-changes/calculator">Letzte Änderungen</a></li>
+					<li><a href="/de/join/contact">Kontakt</a></li>
+					<li><a href="/de/join/donate">Spenden</a></li>
+                </ul>
+                <ul>
 					<li><p>Werkzeuge</p></li>
-					<ul>
-						<li><a href="/de/calculator/tools/links-to-this-page">Links auf dieser Seite</a></li>
-                        <li><a href="/de/calculator/tools/linked-changes">Änderungen an verlinkten Seiten</a></li>
-                        <li><a href="/de/calculator/tools/permanent-link">Permanenter Link</a></li>
-                        <li><a href="/de/calculator/tools/cite-article">Artikel zitieren</a></li>
-					</ul>
+					<li><a href="/de/calculator/tools/links-to-this-page">Links auf dieser Seite</a></li>
+                    <li><a href="/de/calculator/tools/linked-changes">Änderungen an verlinkten Seiten</a></li>
+                    <li><a href="/de/calculator/tools/permanent-link">Permanenter Link</a></li>
+                    <li><a href="/de/calculator/tools/cite-article">Artikel zitieren</a></li>
+                </ul>
+                <ul>
 					<li><p>In anderen Sprachen</p></li>
-					<ul>
-						<li><a href="/it/articles/calculator" rel="alternate" hreflang="it">Italiano</a></li>
-                        <li><a href="/fr/articles/calculator" rel="alternate" hreflang="fr">Français</a></li>
-                        <li><a href="/en/articles/calculator" rel="alternate" hreflang="en">English</a></li>
-					</ul>
+					<li><a href="/it/articles/calculator" rel="alternate" hreflang="it">Italiano</a></li>
+                    <li><a href="/fr/articles/calculator" rel="alternate" hreflang="fr">Français</a></li>
+                    <li><a href="/en/articles/calculator" rel="alternate" hreflang="en">English</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -70,7 +70,11 @@
                     Praktisch alle heutigen Taschenrechner verwenden elektronische Integrierte Schaltungen und
                     LC-Displays als Anzeige und werden von einer Batterie oder Solarzelle mit Strom versorgt.
                 </p>
-                <!-- TODO: Add figure -->
+                <br>
+                <figure id="marchant-calculator">
+                    <img src="../media/900px-SCM_Marchant_calculator.jpg">
+                    <figcaption>By <a href="http://commons.wikimedia.org/wiki/User:Bilby">Bilby</a> - Own work, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>, https://commons.wikimedia.org/w/index.php?curid=10980797</figcaption>
+                </figure>
                 <h4>
                     Geschichte
                 </h4>
@@ -140,7 +144,9 @@
             </section>
             <section>
                 <h3>Demonstration</h3>
-                <!-- TODO: Add Calculator (iframe) -->
+                <div id="calc-demo">
+                    <iframe title="Calculator demonstration" src="../template/calculator/index.html"></iframe>
+                </div>
             </section>
             <section>
                 <h3>Bedienung des TI-Nspire CX CAS</h3>
@@ -160,23 +166,44 @@
             </section>
             <section>
                 <h3>Die besten und schlechtesten Taschenrechner</h3>
-                <!-- TODO: Add ranking of best and worst + section footer -->
+                <p>In einer 2014 durchgeführten Benutzerbefragung schnitten die Modelle von Casino am Besten ab:</p>
+                <ol id="ranking-best">
+                    <li>Casino UX5</li>
+                    <li>Casino TZZ</li>
+                    <li>Casino Basic</li>
+                </ol>
+                <p>Am schlechtesten schnitten die Geräte von HG ab</p>
+                <ol id="ranking-worst">
+                    <li>HG Productive</li>
+                    <li>HG Calc++</li>
+                    <li>HG GO-ON</li>
+                </ol>
             </section>
             <section>
                 <h3>Taschenrechner suchen nach Modell</h3>
-                <!-- TODO: Add text input and search button with magnifying glass icon -->
+                <form>
+                    <input type="text">
+                    <button type="submit" name="search" id="search">Search</button>
+                </form>
             </section>
          <h2>Neuen Autor registrieren</h2>
             <form id="author">
                 <fieldset>
                     <legend>Autor</legend>
-                    <input type="radio" name="gender" value="male" checked> Herr<br>
-                    <input type="radio" name="gender" value="female" checked> Frau<br>
-                    <input type="text" name="name"> Name<br>
-                    <input type="email" name="email"> E-Mail<br>
-                    <input type="url" name="name"> Website<br>
-                    <input type="date" name="dob"> Geburtsdatum<br>
-                    <select name="nationality">
+                    <label for="male">Herr</label>
+                    <input type="radio" name="gender" id="male" value="male" checked><br>
+                    <label for="female">Frau</label>
+                    <input type="radio" name="gender" id="female" value="female" checked><br>
+                    <label for="name">Name</label><br>
+                    <input type="text" id="name" name="name"><br>
+                    <label for="email">E-Mail</label><br>
+                    <input type="email" id="email" name="email"><br>
+                    <label for="website">Website</label><br>
+                    <input type="url" id="website" name="name"><br>
+                    <label for="dob">Geburtsdatum</label><br>
+                    <input type="date" id="dob" name="dob"><br>
+                    <label for="nationality">Nationalität</label><br>
+                    <select name="nationality" id="nationality">
                         <option value="" selected>-- Wählen --</option>
                         <option value="ch">Schweiz</option>
                         <option value="de">Deutschland</option>
@@ -184,15 +211,19 @@
                         <option value="it">Italien</option>
                         <option value="at">Österreich</option>
                     </select> <br>
-                    <textarea name="profiletext" rows="10" cols="30"></textarea> <br>
-                    <input type="file" name="avatar" accept="image/*"> <br>
+                    <label for="profiletext">Profiltext</label><br>
+                    <textarea name="profiletext" id="profiletext" rows="10" cols="30"></textarea> <br>
+                    <label for="avatar">Profilbilder</label><br>
+                    <input type="file" name="avatar" id="avatar" accept="image/*"> <br>
                 </fieldset>
                 <fieldset>
                     <legend>Rechtliches</legend>
-                    <input type="checkbox" name="copyright-text"> Ich bestätige, das ich keine Texte veröffentlichen werde, deren Urheber ich nicht bin<br>
-                    <input type="checkbox" name="copyright-media"> Ich bestätige, das ich keine Medien veröffentlichen werden, deren Urheber ich nicht bin<br>
-                    <input type="checkbox" name="ethics"> Ich bestätige, das nur Texte veröffentlichen werde, die nach bestem Treu und glauben der Wahrheit entsprechen und
-                    eingereichte Medien Bilder nicht manipuliert wurden<br>
+                    <input type="checkbox" name="copyright-text" id="copyright-text">
+                    <label for="copyright-text">Ich bestätige, das ich keine Texte veröffentlichen werde, deren Urheber ich nicht bin</label><br><br>
+                    <input type="checkbox" name="copyright-media" id="copyright-media">
+                    <label for="copyright-media">Ich bestätige, das ich keine Medien veröffentlichen werden, deren Urheber ich nicht bin</label><br><br>
+                    <input type="checkbox" name="ethics" id="ethics">
+                    <label for="ethics">Ich bestätige, das nur Texte veröffentlichen werde, die nach bestem Treu und glauben der Wahrheit entsprechen und eingereichte Medien Bilder nicht manipuliert wurden</label><br>
                 </fieldset>
             </form>
             <button type="submit" form="author">Account anlegen</button>

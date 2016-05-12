@@ -133,6 +133,7 @@ footer a {
 
 section footer {
     display: flex;
+    color: black;
     font-style: italic;
     background: transparent;
     border: .1em dotted black;

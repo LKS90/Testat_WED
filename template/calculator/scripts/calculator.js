@@ -77,6 +77,14 @@ function handleCommand (command) {
             // Parse the strings to numbers.
             var a = parseFloat(output);
             var b = parseFloat(input);
+            if (operation === "/" && b === 0) {
+                output = "Invalid calculation";
+                input = "";
+                operation = "";
+                updateDisplay();
+                ouput = "";
+                return;
+            }
             // Call the function array with the prepared parameters.
             output = operations[index](a, b).toString();
             // Reset input and operation.
@@ -91,7 +99,7 @@ function handleCommand (command) {
         // Everything else is an illegal calculation (missing argument, input or output).
         else {
             input = "";
-            output = "Invalid Calculation";
+            output = "Invalid calculation";
             operation = "";
             updateDisplay();
             output = "";

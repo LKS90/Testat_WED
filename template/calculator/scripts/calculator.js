@@ -60,6 +60,7 @@ function handleCommand (command) {
         input = "";
         output = "";
         operation = "";
+        updateDisplay();
     }
     // Handle the evaluate button.
     else {
@@ -67,6 +68,7 @@ function handleCommand (command) {
         if (output === "" && operation === "" && !(input === "")) {
             output = input.replace(/^0+(?!$)/, "");
             input = "";
+            updateDisplay();
         }
         // If there is something in the input, the output and an operation, calculate the result.
         else if (!(input === "") && !(output === "") && !(operation === "")) {
@@ -80,6 +82,7 @@ function handleCommand (command) {
             // Reset input and operation.
             input = "";
             operation = "";
+            updateDisplay();
         }
         // Do nothing when there is no input or operation.
         else if (input === "" && operation == "" && !(output === "") ||
@@ -88,11 +91,12 @@ function handleCommand (command) {
         // Everything else is an illegal calculation (missing argument, input or output).
         else {
             input = "";
-            output = "Illegal Calculation";
+            output = "Invalid Calculation";
             operation = "";
+            updateDisplay();
+            output = "";
         }
     }
-    updateDisplay();
 };
 
 // Simple array of functions which will calculate the result.

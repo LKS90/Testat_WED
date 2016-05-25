@@ -3,15 +3,18 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Wikipraktika | Taschenrechner - tragbare, handliche elektronische Rechenmaschine</title>
-
-		<!-- TODO: author, publisher, description, bookmark icon -->
-
+		<meta name="author" content="Wikipraktika">
+        <meta name="publisher" content="Wikipraktika">
+        <meta name="description" content="Taschenrechner: tragbare, handliche elektronische Rechenmaschine">
+        <meta name="publisher" content="Wikipraktika">
+        <meta name="keywords" content="Taschenrechner,elektronische Rechenmaschine">
+        <link rel="icon" href="../media/icon-wikipraktika.png" type="image/png">
 		<link rel="stylesheet" type="text/css" href="./styles/styles.css">
 	</head>
 	<body>
 		<header>
             <div class="background">
-			    <img src="../media/logo-wikipraktika.svg">
+			    <img src="../media/logo-wikipraktika.svg" alt="Wikipraktika Logo">
 			    <h1>Wikipraktika</h1>
             </div>
 		</header>
@@ -71,10 +74,12 @@
                     LC-Displays als Anzeige und werden von einer Batterie oder Solarzelle mit Strom versorgt.
                 </p>
                 <br><br>
-                <figure id="marchant-calculator">
-                    <img src="../media/900px-SCM_Marchant_calculator.jpg">
-                    <figcaption>By <a href="http://commons.wikimedia.org/wiki/User:Bilby">Bilby</a> - Own work, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>, https://commons.wikimedia.org/w/index.php?curid=10980797</figcaption>
-                </figure>
+                <aside>
+                    <figure id="marchant-calculator">
+                        <img src="../media/900px-SCM_Marchant_calculator.jpg">
+                        <figcaption>By <a href="http://commons.wikimedia.org/wiki/User:Bilby">Bilby</a> - Own work, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>, https://commons.wikimedia.org/w/index.php?curid=10980797</figcaption>
+                    </figure>
+                </aside>
                 <h4>
                     Geschichte
                 </h4>
@@ -146,7 +151,7 @@
                 <h3>Demonstration</h3>
                 <div id="calc-demo">
                     <figure>
-                        <iframe title="Calculator demonstration" src="../template/calculator/index.html"></iframe>
+                        <iframe width="640" height="680" title="Calculator demonstration" src="../template/calculator/index.html"></iframe>
                         <figcaption>Casino Mini 1972</figcaption>
                     </figure>
                 </div>
@@ -154,14 +159,14 @@
             <section>
                 <h3>Bedienung des TI-Nspire CX CAS</h3>
                 <figure>
-                    <video width="100%" height="100%" controls>
-                        <source src="../media/TI-Nspire CX CAS 3D Model.mp4" type="video/mp4">
-                        <source src="../media/TI-Nspire CX CAS 3D Model.webm" type="video/webm">
+                    <video id="calc-usage" width="848" height="480" controls>
+                        <source src="../media/TI-Nspire%20CX%20CAS%203D%20Model.mp4" type="video/mp4">
+                        <source src="../media/TI-Nspire%20CX%20CAS%203D%20Model.webm" type="video/webm">
                         <track src="../media/ti-nspire-subtitles.en.vtt" kind="subtitles" srclang="en" label="English">
                     </video>
                     <figcaption>TI-Nspire CX CAS Demonstration</figcaption>
-                    <br>
                 </figure>
+                <br>
 
                 <p class="source">Von TheConnerdy, <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY-SA</a>, via <a href="https://www.youtube.com/watch?v=6gKkz4VkSgk">Youtube</a></p>
                 <footer>
@@ -227,8 +232,7 @@
                         Hewlett-Packard.
                     </dd>
                 </dl>
-                <figcaption>Taschenrechnervarianten, Source Wikipedia: <a href="https://de.wikipedia
-                    .org/wiki/Taschenrechner">de.wikipedia.org/wiki/Taschenrechner</a></figcaption>
+                <figcaption>Taschenrechnervarianten, Source Wikipedia: <a href="https://de.wikipedia.org/wiki/Taschenrechner">de.wikipedia.org/wiki/Taschenrechner</a></figcaption>
                 </figure>
                 <footer>
                     <p>Zuletzt geändert von Gabriela Kant</p>
@@ -283,7 +287,7 @@
                         <td>550</td>
                     </tr>
                 </table>
-                <img id="ts-animation" src="../media/zeitgewinn.svg">
+                <object id="ts-animation" data="../media/zeitgewinn.svg" role="img"></object>
                 <footer>
                     <p>Zuletzt geändert von Leandra Gross</p>
                     <time datetime="2016-02-29 13:02">Freitag, 29. Februar 2016, 13:02</time>
@@ -291,12 +295,12 @@
             </section>
             <section>
                 <h3>iPhone calculator tricks</h3>
-                <div class="youtubeWrapper">
-                    <iframe width="100%" height="auto" src="https://www.youtube.com/embed/a7rcVgb41-0"></iframe>
+                <div id="youtube-embed">
+                    <figure>
+                        <iframe width="848" height="480" src="https://www.youtube.com/embed/a7rcVgb41-0"></iframe>
+                        <figcaption>iPhone Calculator Tricks  on YouTube: <a href="https://www.youtube.com/watch?v=a7rcVgb41-0">youtube.com/watch?v=a7rcVgb41-0</a></figcaption>
+                    </figure>
                 </div>
-
-                <p>iPhone Calculator Tricks  on YouTube: <a href="https://www.youtube.com/watch?v=a7rcVgb41-0">youtube.com/watch?v=a7rcVgb41-0</a></p>
-
                 <footer>
                     <p>Zuletzt geändert von Paul Sarner</p>
                     <time datetime="2016-02-10 18:38">Donnerstag, 10. Februar 2016, 18:38</time>
@@ -385,7 +389,7 @@
                 <a href="tel:0554443322">055 444 33 22</a>
                 <a href="mailto:info@wikipraktika.com">info@wikipraktika.com</a>
             </address>
-            <small>Alle Inhalte von <em>Wikipraktika</em> stehen unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"><!--
+            <small>Alle Inhalte von <em>Wikipraktika</em> stehen unter der <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg" alt="Creative Commons License"><!--
              --> Creative Commons Attribution-ShareAlike 4.0 International License</a> und dürfen nur mit Nennung des Autors weiterverwendet werden</small>
         </footer>
 	</body>

@@ -21,7 +21,8 @@ function handleInput(params) {
         default:
             break;
     }
-};
+}
+
 // Add the handleInput to the window.
 window.addEventListener('click', handleInput);
 
@@ -35,7 +36,7 @@ function handleNumber (value) {
         input = input.concat(value);
     }
     updateDisplay();
-};
+}
 
 function handleOperation (newOperation) {
     // Check if a new calculation has been started.
@@ -78,11 +79,7 @@ function handleCommand (command) {
             var a = parseFloat(output);
             var b = parseFloat(input);
             if (operation === "/" && b === 0) {
-                output = "Invalid calculation";
-                input = "";
-                operation = "";
-                updateDisplay();
-                ouput = "";
+                invalidCalculation();
                 return;
             }
             // Call the function array with the prepared parameters.
@@ -98,14 +95,18 @@ function handleCommand (command) {
         }
         // Everything else is an illegal calculation (missing argument, input or output).
         else {
-            input = "";
-            output = "Invalid calculation";
-            operation = "";
-            updateDisplay();
-            output = "";
+            invalidCalculation();
         }
     }
-};
+}
+
+function invalidCalculation() {
+    output = "Invalid calculation";
+    input = "";
+    operation = "";
+    updateDisplay();
+    output = "";
+}
 
 // Simple array of functions which will calculate the result.
 var operations = [

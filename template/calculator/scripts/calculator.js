@@ -1,10 +1,131 @@
-/**
- * core
- */
+/************************************************
+ ******************************************* CORE
+ ************************************************/
 var input = "";
 var output = "";
 var operation = "";
-var operationsIndex = ["+", "-", "*", "/"];
+
+// Simple object of functions which will calculate the result.
+var operations = {
+    "+":
+    function (a, b) {
+        return a + b;
+    },
+    "-":
+    function (a, b) {
+        return a - b;
+    },
+    "*":
+    function (a, b) {
+        return a * b;
+    },
+    "/":
+    function (a, b) {
+        return a / b;
+    }
+}
+
+function evaluate() {
+    var a = parseFloat(output);
+    var b = parseFloat(input);
+    // Call the functions object with the prepared parameters.
+    output = operations[operation](a, b).toString();
+    // Reset input and operation.
+    input = "";
+    operation = "";
+}
+
+/************************************************
+ ********************************************* UI
+ ************************************************/
+ 
+/////////////////////
+//////////////// INIT
+/////////////////////
+
+// Will hold our HTML elements.
+var displayOutput;
+var displayIntput;
+// Set to true when an invalid calculation occurs in order to stop updateDisplay().
+var invalidOp = false;
+
+// Add the handleInput to the window.
+window.addEventListener('click', handleInput);
+
+// Set the HTML elements which will be updated and set the Welcome output.
+window.addEventListener('load', function() {
+    displayOutput = document.getElementById("output");
+    displayIntput = document.getElementById("input");
+    
+    displayOutput.innerHTML = "Welcome";
+});
+
+
+/////////////////////
+//// HELPER FUNCTIONS
+/////////////////////
+
+// Print 'Invalid Calculation'.
+function invalidCalculation() {
+    clear();
+    invalidOp = true;
+    updateDisplay("Invalid Calculation", input, operation);
+}
+
+// Update the values in the display.
+function updateDisplay (first, second, operator) {
+    if(!(first === "Invalid Calculation")) {
+        var firstNumber = isNaN(parseFloat(first)) ? "" : parseFloat(first);
+        displayOutput.innerHTML = firstNumber.toString().concat(" ").concat(operator);
+    }
+    else {
+        displayOutput.innerHTML = first;
+    }
+    displayIntput.innerHTML = isNaN(parseFloat(second)) ? "" : parseFloat(second);
+}
+
+// Delete the current values of input, output and operation.
+function clear() {
+    input = "";
+    output = "";
+    operation = "";
+}
+
+// Move the value of input to output, reset the input to an empty value.
+function moveInputToOutput() {
+    output = input;
+    input = "";
+}
+
+
+/////////////////////
+///// CHECK FUNCTIONS
+/////////////////////
+
+// Check if all values are set.
+function hasAll() {
+    return (!(input === "") && !isNaN(input) && !(output === "") && !isNaN(output) && !(operation === ""));
+}
+
+// Check if the input and output is set, but operation is not.
+function hasInputAndOutput() {
+    return (operation === "" && !(input === "") && !(output === ""));
+}
+
+// Check if the input hasn't been set yet.
+function hasNoInputOrOperation() {
+    return (input === "" && !isNaN(input) && operation == "" && (!(output === "") || (output === "" && !isNaN(output))));
+}
+
+// Check if only the input is set.
+function hasInput() {
+    return (output === "" && operation === "" && !(input === "" && isNaN(input)));
+}
+
+
+/////////////////////
+/////////////// LOGIC
+/////////////////////
 
 // Decide what kind of button was pressed.
 function handleInput(params) {    
@@ -21,10 +142,11 @@ function handleInput(params) {
         default:
             break;
     }
+    if (!invalidOp) {
+        updateDisplay(output, input, operation);
+    }
+    invalidOp = false;
 }
-
-// Add the handleInput to the window.
-window.addEventListener('click', handleInput);
 
 function handleNumber (value) {
     // If there was no number inserted yet, set the value as the input.
@@ -35,112 +157,47 @@ function handleNumber (value) {
     else {
         input = input.concat(value);
     }
-    updateDisplay();
 }
 
 function handleOperation (newOperation) {
     // Check if a new calculation has been started.
-    if (operation === "" && !(input === "") && !(output === "")) {
-        output = input;
-        input = "";
+    if (hasInputAndOutput()) {
+        moveInputToOutput();
     }
     // Set the operation.
     operation = newOperation;
-    
-    // Copy the input to the output.
     if (output === "") {
-        output = input.replace(/^0+(?!$)/, "");
-        input = "";
+        moveInputToOutput();
     }
-    updateDisplay();
 }
 
 function handleCommand (command) {
     // Clear everything when the C button is pressed.
-    if (command === "C") {        
-        input = "";
-        output = "";
-        operation = "";
-        updateDisplay();
+    if (command === "C") {    
+        clear();
+        updateDisplay(output, input, operation);
     }
     // Handle the evaluate button.
     else {
         // If there is no ouput and operation but input, set the ouput to be the input.
-        if (output === "" && operation === "" && !(input === "")) {
-            output = input.replace(/^0+(?!$)/, "");
-            input = "";
-            updateDisplay();
+        if (hasInput()) {
+            copyInputToOutput();
         }
         // If there is something in the input, the output and an operation, calculate the result.
-        else if (!(input === "") && !(output === "") && !(operation === "")) {
-            // Map the operations to the array with functions.
-            var index = operationsIndex.indexOf(operation);
-            // Parse the strings to numbers.
-            var a = parseFloat(output);
-            var b = parseFloat(input);
-            if (operation === "/" && b === 0) {
+        else if (hasAll()) {
+            // If one tries to divide by zero, an invalid value or the operator hasn't beend selected, return with error.
+            if ((operation === "/" && parseInt(input) === 0) || operation === "" || isNaN(output) || isNaN(input)) {
                 invalidCalculation();
                 return;
             }
-            // Call the function array with the prepared parameters.
-            output = operations[index](a, b).toString();
-            // Reset input and operation.
-            input = "";
-            operation = "";
-            updateDisplay();
+            evaluate();
         }
-        // Do nothing when there is no input or operation.
-        else if (input === "" && operation == "" && !(output === "") ||
-                 input === "" && operation == "" && output === "") {
+        else if(hasNoInputOrOperation()) {
+            // Do nothing if there is no new input or operation.
         }
         // Everything else is an illegal calculation (missing argument, input or output).
         else {
             invalidCalculation();
         }
     }
-}
-
-function invalidCalculation() {
-    output = "Invalid calculation";
-    input = "";
-    operation = "";
-    updateDisplay();
-    output = "";
-}
-
-// Simple array of functions which will calculate the result.
-var operations = [
-    function add (a, b) {
-        return a + b;
-    },
-    function sub (a, b) {
-        return a - b;
-    },
-    function mul (a, b) {
-        return a * b;
-    },
-    function div (a, b) {
-        return a / b;
-    }
-]
-
-/**
- * UI
- */
-// Will hold our HTML elements.
-var displayOutput;
-var displayIntput;
-
-// Set the HTML elements which will be updated and set the Welcome output.
-window.addEventListener('load', function() {
-    displayOutput = document.getElementById("output");
-    displayIntput = document.getElementById("input");
-    
-    displayOutput.innerHTML = "Welcome";
-});
-
-// Update the display (after each button press).
-function updateDisplay () {
-    displayIntput.innerHTML = input;
-    displayOutput.innerHTML = output.concat(" ").concat(operation);
 }

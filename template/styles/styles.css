@@ -16,6 +16,11 @@ body {
     padding: 7%;
 }
 
+p {
+    display: block;
+    white-space: pre-line;
+}
+
 header > .background {
     position: inherit;
     background-color: #0261a1;
@@ -43,6 +48,7 @@ header > div > img {
 
 #ts-animation {
     width: 100%;
+    padding-left: calc(50% - 36em);
     max-width: 72em;
     height: auto;
 }
@@ -65,32 +71,25 @@ figcaption {
 }
 
 /* Add flags in front of list items which have an hreflang attribute */
-a[hreflang=en]::before {
-    background-image: url("../../media/flag-en.svg");
-    background-size: 100%;
+a[hreflang]::before {
     display: inline-block;
     width: 1rem;
     height: .8rem;
     margin-right: .2rem;
     content: "";
+}
+
+a[hreflang=en]::before {
+    background-image: url("../../media/flag-en.svg");
+    background-size: 100%;
 }
 a[hreflang=it]::before {
     background-image: url("../../media/flag-it.svg");
     background-size: 100%;
-    display: inline-block;
-    width: 1rem;
-    height: .8rem;
-    margin-right: .2rem;
-    content: "";
 }
 a[hreflang=fr]::before {
     background-image: url("../../media/flag-fr.svg");
     background-size: 100%;
-    display: inline-block;
-    width: 1rem;
-    height: .8rem;
-    margin-right: .2rem;
-    content: "";
 }
 
 small > a > img {
@@ -117,7 +116,7 @@ section figure video {
     padding-bottom: 1em;
 }
 
-section footer {
+.footer {
     display: flex;
     padding: .1em;
     color: black;
@@ -126,7 +125,7 @@ section footer {
     border: .1em dotted black;
 }
 
-section footer time {
+.footer time {
     margin-left: auto;
 }
 
@@ -150,6 +149,7 @@ h3:before{
 
 h4 {
     font-weight: bold;
+    white-space: pre-line;
 }
 
 
@@ -159,6 +159,10 @@ body > .navigation {
     margin-top: 1em;
     margin-bottom: 1em;
 	width: 100%;
+}
+
+ol > li {
+    margin-left: 2em;
 }
 
 /* Add border and background color to navigation */
@@ -172,7 +176,7 @@ body > .navigation {
 }
 
 /* Remove bulletpoints from list entries */
-.navigation > nav > ul, li {
+.navigation > nav > ul {
     list-style-type: none;
 }
 
@@ -203,43 +207,19 @@ dd:before {
     content: "⌖";
 }
 
-#ranking-best {
-    counter-reset: best;
-    padding-top: .2rem;
-    padding-bottom: .2rem;
-}
-
-#ranking-best > li:before {
-    content: counter(best) ". ";
-    counter-increment: best;
-}
-
-#ranking-worst {
-    counter-reset: worst 79;
-    padding-top: .2rem;
-    padding-bottom: .2rem;
-}
-#ranking-worst> li:before {
-    content: counter(worst) ". ";
-    counter-increment: worst -1;
-}
-
 /* table */
 table {
     border-collapse: collapse;
     width: 100%;
 }
 
-tr:nth-child(odd) {
+tr:nth-child(even) {
     background-color: #dbe6ef;
 }
 
-tr:first-child {
+th {
     color: white;
     background: #0261a1;
-}
-
-th {
     padding: .8em;
     border-top: .2em solid black;
     border-bottom: .2em solid black;
@@ -277,35 +257,17 @@ button {
 }
 
 button:hover {
-     background-color: #0261a1;
-     display: inline-block;
-     padding-left: .6rem;
-     padding-right: .6rem;
-     padding-top: .2rem;
-     padding-bottom: .2rem;
      color: lightgray;
-     border: .1rem transparent;
-     box-shadow: 0 0 .1rem .1rem rgba(0, 0, 0, 0.15), 0 0 .2rem .2rem rgba(0, 0, 0, 0.1);
-     border-radius: .2rem;
  }
 
 button:active {
-    background-color: #0261a1;
-    display: inline-block;
-    padding-left: .6rem;
-    padding-right: .6rem;
-    padding-top: .2rem;
-    padding-bottom: .2rem;
     color: lightgray;
-    border: .1rem transparent;
     box-shadow: inset 0 0 0 .3em rgba(0, 0, 0, .1), inset 0 0 0 .5em rgba(0, 0, 0, .2);
-    border-radius: .2rem;
 }
 
 #search::before {
     background-image: url("../../media/icon-search.svg");
     background-repeat: no-repeat;
-    display: inline-block;
     margin-right: .3rem;
     background-size: 100%;
     width: 1rem;
@@ -323,28 +285,54 @@ button:active {
 	padding: 0; margin: 0;
 }
 
-#calc-demo {
-    top: 0;
-    left: 0;
+#calc-demo-embed {
     width: 100%;
-    height: 100%;
-    max-width: 72em;
+    max-width: 800px;
 }
 
-#calc-demo ~ figcaption {
-    position: inherit;
+#calc-demo-embed > iframe {
+    min-width: 600px;
+    width: 95%;
+    height: calc(40em * 1.25);
 }
 
 #calc-usage {
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%;
+    max-width: 1920px;
+}
+
+#calc-usage-embed {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
-    max-width: 72em;
+}
+
+#calc-usage > figcaption {
+    padding-top: calc(56.25% + .5em);
+    margin-bottom: 10em;
+    position: inherit;
+}
+
+#calc-usage ~ .footer {
+    margin-top: 4em;
+}
+
+#youtube {
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%;
+    max-width: 1920px;
+    
 }
 
 #youtube-embed {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    max-width: 72em;
 }

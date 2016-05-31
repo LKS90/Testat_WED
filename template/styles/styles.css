@@ -13,7 +13,7 @@ body {
     counter-reset: title;
 	font-size: 1rem;
 	font-family: "URW Gothic L", "Helvetica", "Arial", sans-serif;
-    padding: 7%;
+    padding: 5em;
 }
 
 p {
@@ -48,7 +48,7 @@ header > div > img {
 
 #ts-animation {
     width: 100%;
-    padding-left: calc(50% - 36em);
+    padding-left: calc(50wv - 36em);
     max-width: 72em;
     height: auto;
 }
@@ -154,7 +154,7 @@ h4 {
 
 
 /* lists */
-body > .navigation {
+body ~ .navigation {
     position: inherit;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -166,7 +166,7 @@ ol > li {
 }
 
 /* Add border and background color to navigation */
-.navigation > nav {
+.navigation {
 	padding: 0.5em;
     margin-top: 1em;
 	background-color: #e6e6e6;
@@ -176,16 +176,16 @@ ol > li {
 }
 
 /* Remove bulletpoints from list entries */
-.navigation > nav > ul {
+.navigation > ul {
     list-style-type: none;
 }
 
-.navigation > nav > ul > li > a:hover {
+.navigation > ul > li > a:hover {
     text-decoration: none;
 }
 
 /* Add padding to nested list items */
-.navigation > nav > ul ~ ul > li ~ li {
+.navigation > ul ~ ul > li ~ li {
     padding-left: 1rem;
 }
 
@@ -285,54 +285,16 @@ button:active {
 	padding: 0; margin: 0;
 }
 
-#calc-demo-embed {
+#calc-demo {
     width: 100%;
-    max-width: 800px;
+    max-width: 1500px;
+    height: calc((100vw - 5em) * 0.9541);
+    max-height: calc(1500px * 1.05);
 }
 
-#calc-demo-embed > iframe {
-    min-width: 600px;
-    width: 95%;
-    height: calc(40em * 1.25);
-}
-
-#calc-usage {
-    position: relative;
-    height: 0;
-    padding-bottom: 56.25%;
+#video-embed {
+    width: 100%;
+    height: calc((100vw - 5em) * 0.5625);
     max-width: 1920px;
-}
-
-#calc-usage-embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-}
-
-#calc-usage > figcaption {
-    padding-top: calc(56.25% + .5em);
-    margin-bottom: 10em;
-    position: inherit;
-}
-
-#calc-usage ~ .footer {
-    margin-top: 4em;
-}
-
-#youtube {
-    position: relative;
-    height: 0;
-    padding-bottom: 56.25%;
-    max-width: 1920px;
-    
-}
-
-#youtube-embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    max-height: calc(1920px * 0.5625);
 }

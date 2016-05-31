@@ -18,9 +18,11 @@
         <h1>Wikipraktika</h1>
     </div>
 </header>
-<div class="navigation">
-    <h2>Navigation</h2>
-    <nav>
+<nav>
+    <header>
+        <h2>Navigation</h2>
+    </header>
+    <div class="navigation">
         <ul>
             <li><a href="/de/">Hauptseite</a></li>
             <li><a href="/de/topics/">Themenportale</a></li>
@@ -48,8 +50,8 @@
             <li><a href="/fr/articles/calculator" rel="alternate" hreflang="fr">Français</a></li>
             <li><a href="/en/articles/calculator" rel="alternate" hreflang="en">English</a></li>
         </ul>
-    </nav>
-</div>
+    </div>
+</nav>
 
 <main>
     <!-- Schriftgrössenwechsler: optionale Aufgabe -->
@@ -60,9 +62,9 @@
         <output name="font-size" id="font-size">1</output>
     </form>
 
-    <h2>Taschenrechner</h2>
     <section>
         <header>
+            <h2>Taschenrechner</h2>
             <h3>Taschenrechner</h3>
         </header>
         <p>
@@ -152,17 +154,17 @@
         <header>
             <h3>Demonstration</h3>
         </header>
-        <figure id="calc-demo-embed">
-            <iframe width="640" height="680" title="Calculator demonstration" src="../template/calculator/index.html"></iframe>
+        <figure>
+            <iframe id="calc-demo"width="640" height="680" title="Calculator demonstration" src="../template/calculator/index.html"></iframe>
             <figcaption>Casino Mini 1972</figcaption>
         </figure>
     </section>
-    <section>
+    <article>
         <header>
             <h3>Bedienung des TI-Nspire CX CAS</h3>
         </header>
-        <figure id="calc-usage">
-            <video id="calc-usage-embed" width="848" height="480" controls>
+        <figure>
+            <video id="video-embed" width="848" height="480" controls>
                 <source src="../media/TI-Nspire%20CX%20CAS%203D%20Model.mp4" type="video/mp4">
                 <source src="../media/TI-Nspire%20CX%20CAS%203D%20Model.webm" type="video/webm">
                 <track src="../media/ti-nspire-subtitles.en.vtt" kind="subtitles" srclang="en" label="English">
@@ -176,7 +178,7 @@
             <span>Zuletzt geändert von Philip Graf</span>
             <time datetime="2016-02-11 12:45">Donnerstag, 11. Februar 2016, 12:45</time>
         </footer>
-    </section>
+    </article>
     <article>
         <h3>Taschenrechnervarianten</h3>
         <figure>
@@ -307,8 +309,8 @@
         <header>
             <h3>iPhone calculator tricks</h3>
         </header>
-        <figure id="youtube">
-            <iframe id="youtube-embed" width="848" height="480" src="https://www.youtube.com/embed/a7rcVgb41-0"></iframe>
+        <figure>
+            <iframe id="video-embed" width="848" height="480" src="https://www.youtube.com/embed/a7rcVgb41-0"></iframe>
             <figcaption>iPhone Calculator Tricks  on YouTube: <a href="https://www.youtube.com/watch?v=a7rcVgb41-0">youtube.com/watch?v=a7rcVgb41-0</a></figcaption>
         </figure>
         <footer class="footer">

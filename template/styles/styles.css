@@ -287,9 +287,9 @@ button:active {
 
 #calc-demo {
     width: 100%;
-    max-width: 1500px;
+    max-width: 1000px;
     height: calc((100vw - 5em) * 0.9541);
-    max-height: calc(1500px * 1.05);
+    max-height: calc(1000px * 1.05);
 }
 
 #video-embed {
